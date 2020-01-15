@@ -1,76 +1,105 @@
 import {
   IonButtons,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
+ 
   IonContent,
   IonHeader,
-  IonIcon,
+  
   IonItem,
   IonLabel,
   IonList,
-  IonListHeader,
-  IonMenuButton,
+ 
   IonPage,
   IonTitle,
-  IonToolbar
-  } from '@ionic/react';
-import { book, build, colorFill, grid } from 'ionicons/icons';
+  IonToolbar,
+  IonBackButton,
+  IonText,
+  IonInput,
+  IonSelect,
+  IonSelectOption,
+  IonButton
+} from '@ionic/react';
 import React from 'react';
-import './Home.css';
 
-const HomePage: React.FC = () => {
-  return (
-    <IonPage>
+class Home extends React.Component<any,any> {
+
+  render() {
+    return (
+      <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="primary">
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonBackButton defaultHref="/" />
           </IonButtons>
-          <IonTitle>Home</IonTitle>
+          <IonTitle>Inventario de correo</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent>
-        <IonCard className="welcome-card">
-          <img src="/assets/shapes.svg" alt=""/>
-          <IonCardHeader>
-            <IonCardSubtitle>Get Started</IonCardSubtitle>
-            <IonCardTitle>Welcome to Ionic</IonCardTitle>
-          </IonCardHeader>
-          <IonCardContent>
-            <p>
-              Now that your app has been created, you'll want to start building out features and
-              components. Check out some of the resources below for next steps.
+      <IonContent className="ion-padding">
+        <IonTitle className="ion-text-center">Nuevo correo electrónico</IonTitle>
+        <p className="ion-text-center">
+          <img src="./assets/icon/user.png" alt="Usuario" />
+        </p>
+        <form action="post">
+          <IonList>
+          <IonItem>
+              <IonLabel position="stacked" >Usuario<IonText color="danger">*</IonText></IonLabel>
+              <IonInput  className="ion-margin-top" placeholder="Nombres del empleado" ></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Departamento</IonLabel>
+              <IonInput className="ion-margin-top" disabled name="departamento"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">BSPI-Punto</IonLabel>
+              <IonInput className="ion-margin-top" disabled name="bspi_punto"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Correo<IonText color="danger">*</IonText></IonLabel>
+              <IonInput className="ion-margin-top" placeholder="example@hospitalleonbecerra.org" type="email"></IonInput>
+            </IonItem>
+            <IonItem>
+              <IonLabel position="stacked">Contraseña<IonText color="danger">*</IonText></IonLabel>
+              <IonInput className="ion-margin-top"></IonInput>
+            </IonItem>
+            <IonList>
+              <IonItem>
+                <IonLabel position="stacked">Estado<IonText color="danger">*</IonText></IonLabel>
+                <IonSelect className="ion-margin-top" okText="Ok" cancelText="Cancelar">
+                  <IonSelectOption selected>En uso</IonSelectOption>
+                  <IonSelectOption>Inactivo</IonSelectOption>
+                </IonSelect>
+              </IonItem>
+            </IonList>
+            <p className="ion-text-center">
+              <IonButton color="primary">Cancelar</IonButton>
+              <IonButton color="secondary" type="submit">Guardar</IonButton>
             </p>
-          </IonCardContent>
-        </IonCard>
-
-        <IonList lines="none">
-          <IonListHeader>
-            <IonLabel>Resources</IonLabel>
-          </IonListHeader>
-          <IonItem href="https://ionicframework.com/docs/" target="_blank">
-            <IonIcon slot="start" color="medium" icon={book} />
-            <IonLabel>Ionic Documentation</IonLabel>
-          </IonItem>
-          <IonItem href="https://ionicframework.com/docs/building/scaffolding" target="_blank">
-            <IonIcon slot="start" color="medium" icon={build} />
-            <IonLabel>Scaffold Out Your App</IonLabel>
-          </IonItem>
-          <IonItem href="https://ionicframework.com/docs/layout/structure" target="_blank">
-            <IonIcon slot="start" color="medium" icon={grid} />
-            <IonLabel>Change Your App Layout</IonLabel>
-          </IonItem>
-          <IonItem href="https://ionicframework.com/docs/theming/basics" target="_blank">
-            <IonIcon slot="start" color="medium" icon={colorFill} />
-            <IonLabel>Theme Your App</IonLabel>
-          </IonItem>
-        </IonList>
+          </IonList>
+        </form>
       </IonContent>
     </IonPage>
-  );
-};
 
-export default HomePage;
+
+
+
+
+
+    )
+  }
+}
+
+export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

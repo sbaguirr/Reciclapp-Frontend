@@ -27,6 +27,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import EjemploDefault from './pages/EjemploDefault';
 
 const appPages: AppPage[] = [
   {
@@ -49,6 +50,7 @@ const App: React.FC = () => (
         <IonRouterOutlet id="main">
           <Route path="/home" component={Home} exact={true} />
           <Route path="/home/list" component={List} exact={true} />
+          <Route path="/home/ejemplo" component={EjemploDefault} exact={true} />
           <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
