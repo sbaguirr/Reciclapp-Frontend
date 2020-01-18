@@ -28,14 +28,25 @@ class InicioSesion extends React.Component<any,any> {
         <IonHeader>
 
         </IonHeader>
+      
+        <IonContent>
+          <p className="ion-text-center">
+            <img src="./assets/icon/reciclaje.jpg" alt="Reciclaje" />
+            <IonTitle className="ion-text-center">Reciclapp</IonTitle>
+          </p>
+          <p className="ion-text-center">
+            <IonLabel position="stacked" color="dark">Usuario</IonLabel>
+            <IonInput></IonInput>
+          </p>
+          <p className="ion-text-center">
+            <IonLabel position="stacked" color="dark">Contraseña</IonLabel>
+            <IonInput type="password"></IonInput>          
+          </p>
+          <p className="ion-text-center">
+            <IonButton color="primary" size="large">Iniciar Sesion</IonButton>
+          </p>
+        </IonContent>
       </IonPage>
-      <IonContent>
-        <p className="ion-text-center">
-          <img src="./assets/icon/reciclaje.jpg" alt="Reciclaje" />
-          <IonTitle className="ion-text-center">Reciclapp</IonTitle>
-        </p>
-      </IonContent>
-
     )
   }
 
