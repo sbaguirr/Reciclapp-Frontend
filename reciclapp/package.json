@@ -22,7 +22,6 @@
     "react-dom": "^16.12.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
     "typescript": "3.7.4"
   },
   "scripts": {
@@ -48,6 +47,10 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
+<<<<<<< HEAD
     "@capacitor/cli": "1.4.0"
+=======
+    "react-scripts": "3.3.0"
+>>>>>>> 6ead4c984af6a492e527ca484248a0217b144686
   }
 }
