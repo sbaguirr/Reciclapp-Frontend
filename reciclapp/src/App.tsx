@@ -28,6 +28,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import EjemploDefault from './pages/EjemploDefault';
+import Camara from './pages/Camara';
 
 const appPages: AppPage[] = [
   {
@@ -51,6 +52,7 @@ const App: React.FC = () => (
           <Route path="/home" component={Home} exact={true} />
           <Route path="/home/list" component={List} exact={true} />
           <Route path="/home/ejemplo" component={EjemploDefault} exact={true} />
+          <Route path="/home/camara" component={Camara} exact={true} />
           <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
