@@ -29,7 +29,7 @@ class InicioSesion extends React.Component<any,any> {
 
         </IonHeader>
       
-        <IonContent>
+        <IonContent className="ion-padding">
           <p className="ion-text-center">
             <img src="./assets/icon/reciclaje.jpg" alt="Reciclaje" />
             <IonTitle className="ion-text-center">Reciclapp</IonTitle>
