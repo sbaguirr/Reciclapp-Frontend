@@ -38,16 +38,17 @@ const VistaProducto: React.FC = () => {
 			|| precio === undefined || categoria === undefined) {
 			setIncompleto(true);
 		} else {
+			
 	
 		let date: any= "2020-01-19";  
 			let registro_objeto = {
 				nombre: nombre,
 				descripcion: descripcion,
-				precio: precio,
+				precio: parseFloat(precio),
 				fecha_publicacion: date,
 				estado: "disponible",
-				usuario: "sbaguirr@espol.edu.ec",
-				categoria: categoria
+				usuario_id: "sbaguirr@espol.edu.ec",
+				categoria_id: parseInt(categoria)
 			}
 			MetodosAxios.crear_publicacion(registro_objeto).then(res => {
 				setAlerta(true);
@@ -78,11 +79,11 @@ const VistaProducto: React.FC = () => {
 							<IonInput className="ion-margin-top" placeholder="Nombre del producto" name="nombre" value={nombre} onIonChange={(e) => setNombre((e.target as HTMLInputElement).value)}></IonInput>
 						</IonItem>
 						<IonItem>
-							<IonLabel position="stacked">Descripcion</IonLabel>
+							<IonLabel position="stacked">Descripcion<IonText color="danger">*</IonText></IonLabel>
 							<IonTextarea className="ion-margin-top" name="descripcion" value={descripcion} onIonChange={(e) => setDescripcion((e.target as HTMLInputElement).value)}></IonTextarea>
 						</IonItem>
 						<IonItem>
-							<IonLabel position="stacked">Precio</IonLabel>
+							<IonLabel position="stacked">Precio<IonText color="danger">*</IonText></IonLabel>
 							<IonInput className="ion-margin-top" name="precio" value={precio} onIonChange={(e) => setPrecio((e.target as HTMLInputElement).value)}></IonInput>
 						</IonItem>
 						<IonItem>
@@ -93,8 +94,7 @@ const VistaProducto: React.FC = () => {
 						</IonItem>
 					</IonList>
 					<p className="ion-text-center">
-						<IonButton color="primary">Cancelar</IonButton>
-						<IonButton color="secondary" type="submit">Guardar</IonButton>
+						<IonButton color="secondary" type="submit">Publicar</IonButton>
 					</p>
 
 				</form>

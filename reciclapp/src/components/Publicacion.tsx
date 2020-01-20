@@ -1,5 +1,5 @@
 import {
-    IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonIcon
+    IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonGrid, IonRow, IonCol, IonIcon, IonItem
 } from '@ionic/react';
 import { bookmark, time } from 'ionicons/icons';
 import React from 'react';
@@ -10,7 +10,8 @@ import { IPublicacion } from './IPublicacion';
 class Publicacion extends React.Component<IPublicacion>  {
     render() {
         return (
-            <IonCard>
+            <IonItem>
+            <IonCard color="light">
                 <IonCardHeader>
                     <IonCardSubtitle>$ {this.props.precio}</IonCardSubtitle>
                     <IonCardTitle>{this.props.nombre} </IonCardTitle>
@@ -31,6 +32,7 @@ class Publicacion extends React.Component<IPublicacion>  {
                     </IonGrid>
                 </IonCardContent>
             </IonCard>
+            </IonItem>
         );
     }
 };

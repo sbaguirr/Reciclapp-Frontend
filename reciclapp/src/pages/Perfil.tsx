@@ -125,8 +125,8 @@ class Perfil extends React.Component<any, Usuario> {
           </IonList>
           <IonList>
             <IonItem>
-              <IonTitle class="ion-text-start">Publicaciones realizadas</IonTitle>
-            </IonItem>
+              <IonTitle class="ion-text-start" color="secondary">Publicaciones realizadas</IonTitle>
+            </IonItem>   
             {
                this.state.publicaciones.map((dato: any) => {
                 return (
