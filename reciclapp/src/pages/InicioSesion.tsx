@@ -5,7 +5,9 @@ import {
   IonPage,
   IonTitle,
   IonInput,
-  IonButton
+  IonButton,
+  IonToolbar,
+  IonItem
 } from '@ionic/react';
 import React from 'react';
 
@@ -15,30 +17,32 @@ class InicioSesion extends React.Component<any,any> {
     return(
       <IonPage>
         <IonHeader>
-
+        <IonHeader>
+          <IonToolbar color="primary">
+            <IonTitle></IonTitle>
+          </IonToolbar>
         </IonHeader>
-      
+        </IonHeader>
         <IonContent className="ion-padding">
           <p className="ion-text-center">
-            <img src="./assets/icon/login.png" alt="Reciclaje" />
+            <img src="./assets/icon/logo.png" alt="Reciclaje" />
             <IonTitle className="ion-text-center">Reciclapp</IonTitle>
           </p>
-          <p className="ion-text-center">
+          <IonItem>
             <IonLabel position="stacked" color="dark">Usuario</IonLabel>
-            <IonInput></IonInput>
-          </p>
-          <p className="ion-text-center">
+            <IonInput placeholder="Nombre de usuario"></IonInput>
+          </IonItem>
+          <IonItem>
             <IonLabel position="stacked" color="dark">Contraseña</IonLabel>
-            <IonInput type="password"></IonInput>          
-          </p>
+            <IonInput type="password"></IonInput>   
+          </IonItem> 
           <p className="ion-text-center">
-            <IonButton color="primary" size="large" href="/home">Iniciar Sesion</IonButton>
-          </p>
+            <IonButton color="primary" href="/home">Iniciar Sesión</IonButton>
+          </p>     
         </IonContent>
       </IonPage>
     )
   }
-
 }
 
 export default InicioSesion;

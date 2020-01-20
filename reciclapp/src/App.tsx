@@ -61,7 +61,7 @@ const App: React.FC = () => (
           <Route path="/upload" component={SubirImagen} exact={true} />
           <Route path="/home/ejemplo" component={EjemploDefault} exact={true} />
           <Route path="/home/camara" component={Camara} exact={true} />
-          <Route path="/" render={() => <Redirect to="/home"/> } exact={true} />
+          <Route path="/" render={() => <Redirect to="/inicio"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>

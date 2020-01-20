@@ -66,6 +66,9 @@ const VistaProducto: React.FC = () => {
 				<IonToolbar color="primary">
 					<IonButtons slot="start">
 						<IonBackButton defaultHref="/home" />
+						<IonButtons slot="end">
+              <IonButton routerLink="/perfil"></IonButton>
+            </IonButtons>
 					</IonButtons>
 					<IonTitle>Nueva publicación</IonTitle>
 				</IonToolbar>
@@ -74,6 +77,9 @@ const VistaProducto: React.FC = () => {
 
 				<form onSubmit={(e) => { e.preventDefault(); registrar_objeto(); }} action="post">
 					<IonList>
+					<p className="ion-text-center">
+						<img src="./assets/icon/cam.png" alt="Camara" />
+					</p>
 						<IonItem >
 							<IonLabel position="stacked">Nombre del producto<IonText color="danger">*</IonText></IonLabel>
 							<IonInput className="ion-margin-top" placeholder="Nombre del producto" name="nombre" value={nombre} onIonChange={(e) => setNombre((e.target as HTMLInputElement).value)}></IonInput>

@@ -1,20 +1,10 @@
 import {
   IonButtons,
-
   IonContent,
   IonHeader,
-
-  IonItem,
-  IonLabel,
-  IonList,
-
   IonPage,
   IonTitle,
   IonToolbar,
-  IonText,
-  IonInput,
-  IonSelect,
-  IonSelectOption,
   IonButton,
   IonMenuButton,
   IonCard,
@@ -30,7 +20,7 @@ import {
   IonFabButton
 } from '@ionic/react';
 import React from 'react';
-import { bookmark,create,time,contact } from 'ionicons/icons';
+import { bookmark,create,time,contact} from 'ionicons/icons';
 
 class Home extends React.Component<any, any> {
 
@@ -78,7 +68,21 @@ class Home extends React.Component<any, any> {
               <IonIcon icon={create}></IonIcon>
             </IonFabButton>
           </IonFab>
-
+          <IonTitle >Categorias populares</IonTitle>
+          <IonGrid>
+      <IonRow>
+        <IonCol  > <IonButton color="light" expand="block"> Papel </IonButton></IonCol>
+        <IonCol  ><IonButton  color="light"  expand="block">Plástico </IonButton></IonCol>
+        </IonRow>
+                <IonRow>
+        <IonCol  > <IonButton  color="light"  expand="block">Aluminio </IonButton></IonCol>
+        <IonCol  ><IonButton  color="light" expand="block">Vidrio </IonButton></IonCol>
+        </IonRow>
+        <IonRow>
+        <IonCol  > <IonButton  color="light"  expand="block">Chatarra </IonButton></IonCol>
+        <IonCol  ><IonButton  color="light" expand="block">Cartón </IonButton></IonCol>
+        </IonRow>
+        </IonGrid>
         </IonContent>
 
 
