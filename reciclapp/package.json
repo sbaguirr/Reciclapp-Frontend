@@ -17,6 +17,7 @@
     "@types/react-dom": "^16.9.4",
     "@types/react-router": "^5.1.4",
     "@types/react-router-dom": "^5.1.3",
+    "axios": "^0.19.1",
     "ionicons": "^4.6.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -47,10 +48,7 @@
   },
   "description": "An Ionic project",
   "devDependencies": {
-<<<<<<< HEAD
-    "@capacitor/cli": "1.4.0"
-=======
+    "@capacitor/cli": "1.4.0",
     "react-scripts": "3.3.0"
->>>>>>> 6ead4c984af6a492e527ca484248a0217b144686
   }
 }

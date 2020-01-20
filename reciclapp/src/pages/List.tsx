@@ -10,7 +10,7 @@ const ListPage: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>List</IonTitle>
+          <IonTitle>Reciclapp</IonTitle>
         </IonToolbar>
       </IonHeader>
 

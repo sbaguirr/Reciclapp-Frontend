@@ -1,21 +1,14 @@
 import{  
   IonButtons,
- 
   IonHeader,  
   IonContent,
-  
   IonItem,
   IonLabel,
   IonList,
- 
   IonPage,
   IonTitle,
   IonToolbar,
   IonBackButton,
-  IonText,
-  IonInput,
-  IonSelect,
-  IonSelectOption,
   IonButton
 } from '@ionic/react';
 import React from 'react';
@@ -57,3 +50,4 @@ class SubirImagen extends React.Component<any,any> {
   }
 
 }
+export default SubirImagen;

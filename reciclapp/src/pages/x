@@ -1,0 +1,89 @@
+class VistaProducto extends React.Component<any, any> {
+
+	constructor(props: any) {
+		super(props);
+		this.state = {
+			nombre: String,
+			imagen: String,
+			descripcion: String,
+			precio: Number,
+			fecha_publicacion: new Date().toISOString(),
+			categoria: String,
+			popOver: false,
+			incompleto: false,
+			guardado: false,
+			error: false
+
+		}
+	}
+
+
+	registrar_objeto = () => {
+		if (this.state.nombre === undefined || this.state.descripcion === undefined
+			|| this.state.precio === undefined || this.state.categoria === undefined) {
+			this.setState({ incompleto: true });
+		} else {
+			let registro_objeto = {
+				nombre: this.state.nombre,
+				imagen: "ninguna",
+				descripcion: this.state.descripcion,
+				precio: this.state.precio,
+				fecha_publicacion: new Date().toISOString(),
+				categoria: this.state.categoria,
+			}
+
+			MetodosAxios.crear_publicacion(registro_objeto).then(res => {
+				this.setState({ guardado: true });
+			}).catch(err => {
+				this.setState({ error: true });
+			});
+
+		}
+	}
+
+
+
+	render() {
+		return (
+			<IonPage>
+				<IonHeader>
+					<IonToolbar color="primary">
+						<IonButtons slot="start">
+							<IonBackButton defaultHref="/" />
+						</IonButtons>
+						<IonTitle>PRODUCTO</IonTitle>
+					</IonToolbar>
+				</IonHeader>
+				<IonContent className="ion-padding">
+					<p className="ion-text-center">
+						<img src="./assets/icon/producto.png" alt="Foto del producto" />
+					</p>
+					<form onSubmit={(e) => { e.preventDefault(); this.registrar_objeto(); }} action="post">
+						<IonLabel className="ion-text-center">Nombre del producto</IonLabel>
+						<IonInput className="ion-margin-top" onIonChange={(e) => this.setState(({titulo:(e.target as HTMLInputElement).value)})}></IonInput>
+						<IonList>
+							<IonItem>
+								<IonLabel position="stacked" >Descripcion</IonLabel>
+								<IonTextarea className="ion-margin-top"></IonTextarea>
+							</IonItem>
+							<IonItem>
+								<IonLabel position="stacked" >Precio</IonLabel>
+								<IonInput className="ion-margin-top"></IonInput>
+							</IonItem>
+							<IonItem>
+								<IonLabel position="stacked" >Categoría</IonLabel>
+								<IonSelect value={this.state.filtro_dpto} okText="Ok" cancelText="Cancelar" name="departamento"
+									onIonChange={(e) => this.setState({ filtro_dpto: e.detail.value })}>
+									<IonSelectOption selected>Todos</IonSelectOption>
+									<SelectOptionCategoria />
+								</IonSelect>
+							</IonItem>
+						</IonList>
+					</form>
+				</IonContent>
+			</IonPage>
+		)
+	}
+
+}
+export default VistaProducto;

@@ -1,88 +1,89 @@
 import {
   IonButtons,
- 
+
   IonContent,
   IonHeader,
-  
+
   IonItem,
   IonLabel,
   IonList,
- 
+
   IonPage,
   IonTitle,
   IonToolbar,
-  IonBackButton,
   IonText,
   IonInput,
   IonSelect,
   IonSelectOption,
-  IonButton
+  IonButton,
+  IonMenuButton,
+  IonCard,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonCardContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonIcon,
+  IonFab,
+  IonFabButton
 } from '@ionic/react';
 import React from 'react';
+import { bookmark,create,time,contact } from 'ionicons/icons';
 
-class Home extends React.Component<any,any> {
+class Home extends React.Component<any, any> {
 
   render() {
     return (
       <IonPage>
-      <IonHeader>
-        <IonToolbar color="primary">
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
-          </IonButtons>
-          <IonTitle>Inventario de correo</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent className="ion-padding">
-        <IonTitle className="ion-text-center">Nuevo correo electrónico</IonTitle>
-        <p className="ion-text-center">
-          <img src="./assets/icon/user.png" alt="Usuario" />
-        </p>
-        <form action="post">
-          <IonList>
-          <IonItem>
-              <IonLabel position="stacked" >Usuario<IonText color="danger">*</IonText></IonLabel>
-              <IonInput  className="ion-margin-top" placeholder="Nombres del empleado" ></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">Departamento</IonLabel>
-              <IonInput className="ion-margin-top" disabled name="departamento"></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">BSPI-Punto</IonLabel>
-              <IonInput className="ion-margin-top" disabled name="bspi_punto"></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">Correo<IonText color="danger">*</IonText></IonLabel>
-              <IonInput className="ion-margin-top" placeholder="example@hospitalleonbecerra.org" type="email"></IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">Contraseña<IonText color="danger">*</IonText></IonLabel>
-              <IonInput className="ion-margin-top"></IonInput>
-            </IonItem>
-            <IonList>
-              <IonItem>
-                <IonLabel position="stacked">Estado<IonText color="danger">*</IonText></IonLabel>
-                <IonSelect className="ion-margin-top" okText="Ok" cancelText="Cancelar">
-                  <IonSelectOption selected>En uso</IonSelectOption>
-                  <IonSelectOption>Inactivo</IonSelectOption>
-                </IonSelect>
-              </IonItem>
-            </IonList>
-            <p className="ion-text-center">
-              <IonButton color="primary">Cancelar</IonButton>
-              <IonButton color="secondary" type="submit">Guardar</IonButton>
-            </p>
-          </IonList>
-        </form>
-      </IonContent>
-    </IonPage>
+        <IonHeader>
+          <IonToolbar color="primary">
+            <IonButtons slot="start">
+              <IonMenuButton />
+            </IonButtons>
+            <IonTitle>Reciclapp</IonTitle>
+            <IonButtons slot="end">
+              <IonButton routerLink="/perfil"><IonIcon icon={contact}></IonIcon></IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+
+        <IonContent>
+          <IonCard>
+          <img src="./assets/icon/plastico.jpg" alt="publicacion"/>
+            <IonCardHeader>
+              <IonCardSubtitle> $ 1.00 </IonCardSubtitle>
+              <IonCardTitle> Botellas plásticas </IonCardTitle>
+            </IonCardHeader>
+            <IonCardContent>
+              Botellas de plástico de detergentes varios colores
+                    <IonGrid>
+                <IonRow>
+                  <IonCol>
+                    <IonIcon icon={time}></IonIcon>
+                    2020-01-10
+                  </IonCol>
+                  <IonCol>
+                    <IonIcon icon={bookmark}></IonIcon>
+                    plástico
+                  </IonCol>
+                </IonRow>
+              </IonGrid>
+            </IonCardContent>
+          </IonCard>
+
+          <IonFab vertical="bottom" horizontal="end" slot="fixed" color="secondary">
+            <IonFabButton href="/producto">
+              <IonIcon icon={create}></IonIcon>
+            </IonFabButton>
+          </IonFab>
+
+        </IonContent>
 
 
 
-
-
-
+      </IonPage>
     )
   }
 }
