@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import List from './pages/List';
 import InicioSesion from './pages/InicioSesion';
 import VistaProducto from './pages/VistaProducto';
+import PerfilProducto from './pages/PerfilProducto';
 import Perfil from './pages/Perfil';
 import SubirImagen from './pages/SubirImagen';
 import { home, list } from 'ionicons/icons';
@@ -61,6 +62,7 @@ const App: React.FC = () => (
           <Route path="/upload" component={SubirImagen} exact={true} />
           <Route path="/home/ejemplo" component={EjemploDefault} exact={true} />
           <Route path="/home/camara" component={Camara} exact={true} />
+          <Route path="/home/perfilproducto" component={PerfilProducto} exact={true} />
           <Route path="/" render={() => <Redirect to="/inicio"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>
