@@ -1,4 +1,4 @@
-import { IonLabel, IonContent, IonButton, IonList, IonItem, IonIcon, IonText, IonModal, IonHeader, IonToolbar, IonButtons, IonTitle} from '@ionic/react';
+import { IonLabel, IonContent, IonButton, IonList, IonItem, IonIcon, IonText, IonModal, IonHeader, IonToolbar, IonButtons, IonTitle } from '@ionic/react';
 import React from 'react';
 import '../theme/Estilo.css';
 import { logoWhatsapp, arrowBack, text, arrowForward } from 'ionicons/icons';
@@ -16,6 +16,7 @@ class ModalPublicacion extends React.Component<any, any>  {
         return (
             <IonContent>
                 <h2 className="ion-margin-start">{this.props.nombre}</h2>
+                <p className="ion-margin-start">Usuario: {this.props.vendedor}</p>
                 <img src={this.props.imagen} alt="publicacion" />
                 <IonText color="primary"><h2 className="ion-text-end ion-margin-end">${this.props.precio}</h2></IonText>
                 <IonList>
@@ -53,7 +54,7 @@ class ModalPublicacion extends React.Component<any, any>  {
                             <IonTitle>Comentarios</IonTitle>
                         </IonToolbar>
                     </IonHeader>
-                  <ModalComentario id_objeto={this.props.id_objeto} usuario_actual={this.props.usuario_actual}></ModalComentario>
+                    <ModalComentario id_objeto={this.props.id_objeto} usuario_actual={this.props.usuario_actual}></ModalComentario>
                 </IonModal>
             </IonContent>
 

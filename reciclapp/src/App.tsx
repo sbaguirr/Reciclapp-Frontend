@@ -10,7 +10,6 @@ import InicioSesion from './pages/InicioSesion';
 import VistaProducto from './pages/VistaProducto';
 import Perfil from './pages/Perfil';
 import MisPublicaciones from './pages/MisPublicaciones';
-import Categorias from './pages/Categorias';
 import { home, list, person, logOut } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -65,7 +64,6 @@ const App: React.FC = () => (
           <Route path="/producto" component={VistaProducto} exact={true} />
           <Route path="/perfil" component={Perfil} exact={true} />
           <Route path="/publicaciones" component={MisPublicaciones} exact={true} />
-          <Route path="/categorias" component={Categorias} exact={true} />
           <Route path="/" render={() => <Redirect to="/inicio"/> } exact={true} />
         </IonRouterOutlet>
       </IonSplitPane>

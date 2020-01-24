@@ -1,12 +1,25 @@
-import { IonContent, IonList, IonItem, IonIcon, IonLabel } from '@ionic/react';
+import { IonContent, IonList, IonItem, IonIcon, IonLabel, IonRefresher, IonRefresherContent } from '@ionic/react';
 import { person, pin, logoWhatsapp, map } from 'ionicons/icons';
 import React from 'react';
+import { RefresherEventDetail } from '@ionic/core';
 
 
-class InformacionPerfil extends React.Component<any, any> {    
+
+class InformacionPerfil extends React.Component<any, any> {
+    doRefresh(event: CustomEvent<RefresherEventDetail>) {
+        console.log('Begin async operation');
+        setTimeout(() => {
+            console.log('Async operation has ended');
+            event.detail.complete();
+        }, 2000);
+    }
+
     render() {
         return (
             <IonContent className="ion-padding">
+                <IonRefresher slot="fixed" onIonRefresh={this.doRefresh}>
+                    <IonRefresherContent></IonRefresherContent>
+                </IonRefresher>
                 <p className="ion-text-center">
                     <img src="./assets/icon/user.png" alt="Foto del Usuario" />
                 </p>

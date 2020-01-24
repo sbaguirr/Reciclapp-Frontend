@@ -49,7 +49,7 @@ class MisPublicaciones extends React.Component<any, IMisPublicaciones> {
             {
               this.state.mis_publicaciones.map((dato: any) => {
                 return (
-                  <Publicacion key={dato.objeto_id} id_objeto={dato.objeto_id} nombre={dato.titulo} imagen={dato.ruta}
+                  <Publicacion key={dato.objeto_id} id_objeto={dato.objeto_id} vendedor={dato.nombre_usuario}  nombre={dato.titulo} imagen={dato.ruta}
                   descripcion={dato.descripcion} estado={dato.estado} precio={dato.precio} fecha_publicacion={dato.created_at}
                   categoria={dato.categoria} usuario_actual={this.state.usuario_actual}/>
                 )

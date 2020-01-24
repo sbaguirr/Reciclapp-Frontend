@@ -3,7 +3,7 @@ export default class MetodosAxios {
     static instanceAxios = axios.create({
         baseURL: 'https://reciclappback.herokuapp.com/api',
     });
-
+//http://localhost:8000/api 
     static mostrar_perfil = (usuario_id: any) => {
         return MetodosAxios.instanceAxios.get(`mostrar_perfil/${usuario_id}`);
     }

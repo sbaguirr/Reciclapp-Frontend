@@ -1,5 +1,6 @@
 export interface IPublicacion {
     id_objeto:any;
+    vendedor: any;
     nombre: any;
     imagen: any;
     descripcion: any;

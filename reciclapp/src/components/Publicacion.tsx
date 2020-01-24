@@ -43,7 +43,7 @@ class Publicacion extends React.Component<IPublicacion,any>  {
                             <IonTitle>Información del producto</IonTitle>
                         </IonToolbar>
                     </IonHeader>
-                    <ModalPublicacion nombre={this.props.nombre} imagen={this.props.imagen}
+                    <ModalPublicacion nombre={this.props.nombre} imagen={this.props.imagen} vendedor={this.props.vendedor}
                         descripcion={this.props.descripcion} precio={this.props.precio} fecha_publicacion={this.props.fecha_publicacion} categoria={this.props.categoria}
                         id_objeto={this.props.id_objeto} usuario_actual={this.props.usuario_actual}></ModalPublicacion>
 

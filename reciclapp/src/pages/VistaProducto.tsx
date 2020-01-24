@@ -53,13 +53,13 @@ const VistaProducto: React.FC = () => {
 			|| precio === undefined || categoria === undefined) {
 			setIncompleto(true);
 		} else {
-
+			let nombreu: String = localStorage.user;
 			let registro_objeto = {
 				nombre: nombre,
 				descripcion: descripcion,
 				precio: parseFloat(precio),
 				estado: "disponible",
-				usuario_id: "sbaguirr@espol.edu.ec",
+				usuario_id: nombreu.slice(1, nombreu.length - 1),
 				categoria_id: parseInt(categoria),
 				ruta: imagen
 			}
