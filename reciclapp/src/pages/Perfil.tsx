@@ -1,7 +1,9 @@
-import { IonButtons, IonHeader, IonContent, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar, IonBackButton, 
-  IonInput } from '@ionic/react';
+import {
+  IonButtons, IonHeader, IonPage, IonTitle, IonToolbar, IonBackButton
+} from '@ionic/react';
 import React from 'react';
 import MetodosAxios from '../services/MetodosAxios';
+import InformacionPerfil from '../components/InformacionPerfil';
 
 interface Usuario {
   nombres: any,
@@ -9,8 +11,7 @@ interface Usuario {
   ciudad: any,
   direccion: any,
   telefono: any,
-  nombreUsuario: any,
-  publicaciones: any
+  nombreUsuario: any
 };
 
 class Perfil extends React.Component<any, Usuario> {
@@ -23,16 +24,14 @@ class Perfil extends React.Component<any, Usuario> {
       ciudad: String,
       direccion: String,
       telefono: String,
-      nombreUsuario: String,
-      publicaciones: [] as any
+      nombreUsuario: String
     }
   }
 
   componentDidMount = () => {
     let nom: String, ape: String, cit: String, dir: String, tel: String, user: String;
     let username: String = localStorage.user;
-    
-    MetodosAxios.mostrar_perfil(username.slice(1, username.length-1)).then(res => {
+    MetodosAxios.mostrar_perfil(username.slice(1, username.length - 1)).then(res => {
       res.data.forEach(function (d: any) {
         user = d.nombre_usuario;
         nom = d.nombres;
@@ -66,34 +65,9 @@ class Perfil extends React.Component<any, Usuario> {
             <IonTitle>Perfil</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <IonContent className="ion-padding">
-          <p className="ion-text-center">
-            <img src="./assets/icon/user.png" alt="Foto del Usuario" />
-          </p>
-          <IonTitle class="ion-text-start" >Información sobre {this.state.nombreUsuario}</IonTitle>    
-          <IonList>
-            <IonItem>
-              <IonLabel position="stacked" >Nombres</IonLabel>
-              <IonInput className="ion-margin-top">{this.state.nombres} </IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked" >Apellidos</IonLabel>
-              <IonInput className="ion-margin-top">{this.state.apellidos}</IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked" >Ciudad</IonLabel>
-              <IonInput className="ion-margin-top">{this.state.ciudad}</IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked" >Direccion</IonLabel>
-              <IonInput className="ion-margin-top">{this.state.direccion}</IonInput>
-            </IonItem>
-            <IonItem>
-              <IonLabel position="stacked">Telefonos</IonLabel>
-              <IonInput className="ion-margin-top">{this.state.telefono}</IonInput>
-            </IonItem>
-          </IonList>
-        </IonContent>
+        <InformacionPerfil nombreUsuario={this.state.nombreUsuario} nombres={this.state.nombres} apellidos={this.state.apellidos}
+        ciudad={this.state.ciudad} direccion={this.state.direccion} telefono={this.state.telefono}
+        ></InformacionPerfil>
       </IonPage>
     )
   }

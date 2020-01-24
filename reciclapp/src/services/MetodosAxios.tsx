@@ -15,7 +15,7 @@ export default class MetodosAxios {
     static usuarios = () => {
         return MetodosAxios.instanceAxios.get(`usuarios`);
     }
-    
+
     static ver_publicaciones_otros = (usuario_id: any) => {
         return MetodosAxios.instanceAxios.get(`ver_publicaciones_otros/${usuario_id}`);
     }
@@ -26,10 +26,19 @@ export default class MetodosAxios {
 
     static crear_publicacion = (objetos: any) => {
         return MetodosAxios.instanceAxios.post(`/objetos`, objetos);
-      }
+    }
 
     static categorias = () => {
         return MetodosAxios.instanceAxios.get(`categorias`);
     }
-      
+
+    static mostrar_comentarios = (id_objeto: any) => {
+        return MetodosAxios.instanceAxios.get(`mostrar_comentarios/${id_objeto}`);
+    }
+
+    static comentar_objeto = (comentario: any) => {
+        return MetodosAxios.instanceAxios.post(`/comentarios`, comentario);
+    }
+
+
 }

@@ -4,7 +4,7 @@ import {
 import { bookmark, time, arrowBack } from 'ionicons/icons';
 import React from 'react';
 import { IPublicacion } from '../components/IPublicacion';
-import Modal from '../pages/Modal';
+//import Modal from '../pages/Modal';
 
 
 class Publicacion extends React.Component<IPublicacion, any>  {
@@ -46,9 +46,7 @@ class Publicacion extends React.Component<IPublicacion, any>  {
                           <IonTitle>Información del producto</IonTitle>
                       </IonToolbar>
                   </IonHeader>
-               
-                  <Modal nombre={this.props.nombre} imagen={this.props.imagen}
-                 descripcion={this.props.descripcion} precio={this.props.precio} fecha_publicacion={this.props.fecha_publicacion} categoria={this.props.categoria}></Modal>
+    
                  
               </IonModal>
           </div>

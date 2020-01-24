@@ -4,21 +4,24 @@ import MetodosAxios from '../services/MetodosAxios';
 import Publicacion from '../components/Publicacion';
 
 interface IMisPublicaciones {
-  mis_publicaciones: any
+  mis_publicaciones: any;
+  usuario_actual:any
 };
+
 
 class MisPublicaciones extends React.Component<any, IMisPublicaciones> {
 
   constructor(props: any) {
     super(props);
     this.state = {
-      mis_publicaciones: [] as any
+      mis_publicaciones: [] as any,
+      usuario_actual: localStorage.user
     }
   }
 
   componentDidMount = () => {
-    let username: String = localStorage.user;
-    MetodosAxios.ver_mis_publicaciones(username.slice(1, username.length-1)).then(res => {
+   // let username: String = localStorage.user; username.slice(1, username.length-1)
+    MetodosAxios.ver_mis_publicaciones(this.state.usuario_actual.slice(1,this.state.usuario_actual.length-1)).then(res => {
       if (res.data.length === 0) {
         console.log("nai");
       } else {
@@ -46,9 +49,9 @@ class MisPublicaciones extends React.Component<any, IMisPublicaciones> {
             {
               this.state.mis_publicaciones.map((dato: any) => {
                 return (
-                  <Publicacion key={dato.objeto_id} nombre={dato.titulo} imagen={dato.ruta}
+                  <Publicacion key={dato.objeto_id} id_objeto={dato.objeto_id} nombre={dato.titulo} imagen={dato.ruta}
                   descripcion={dato.descripcion} estado={dato.estado} precio={dato.precio} fecha_publicacion={dato.created_at}
-                  categoria={dato.categoria}/>
+                  categoria={dato.categoria} usuario_actual={this.state.usuario_actual}/>
                 )
               })
             }

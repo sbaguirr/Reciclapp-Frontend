@@ -1,4 +1,5 @@
 export interface IPublicacion {
+    id_objeto:any;
     nombre: any;
     imagen: any;
     descripcion: any;
@@ -6,4 +7,5 @@ export interface IPublicacion {
     fecha_publicacion: any;
     categoria: any;
     estado: any;
+    usuario_actual: any;
 }
