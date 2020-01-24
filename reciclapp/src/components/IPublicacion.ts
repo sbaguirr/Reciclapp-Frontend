@@ -5,4 +5,5 @@ export interface IPublicacion {
     precio: any;
     fecha_publicacion: any;
     categoria: any;
+    estado: any;
 }

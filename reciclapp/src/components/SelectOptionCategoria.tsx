@@ -1,6 +1,4 @@
-import {
-    IonSelectOption
-} from '@ionic/react';
+import { IonSelectOption } from '@ionic/react';
 import MetodosAxios from '../services/MetodosAxios';
 import React, { useState, useEffect } from 'react';
 
@@ -11,7 +9,7 @@ const SelectOptionCategoria: React.FC = () => {
 
 
     useEffect(() => {
-        MetodosAxios.mostrar_categoria().then(res => {
+        MetodosAxios.categorias().then(res => {
             setCategoria(res.data); });
             
     }, []);

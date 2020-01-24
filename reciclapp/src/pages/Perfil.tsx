@@ -1,21 +1,7 @@
-import {
-  IonButtons,
-  IonHeader,
-  IonContent,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonBackButton,
-  IonInput
-  //  IonIcon,
-} from '@ionic/react';
-//import { bookmarks } from 'ionicons/icons';
+import { IonButtons, IonHeader, IonContent, IonItem, IonLabel, IonList, IonPage, IonTitle, IonToolbar, IonBackButton, 
+  IonInput } from '@ionic/react';
 import React from 'react';
 import MetodosAxios from '../services/MetodosAxios';
-import Publicacion from '../components/Publicacion';
 
 interface Usuario {
   nombres: any,
@@ -26,8 +12,6 @@ interface Usuario {
   nombreUsuario: any,
   publicaciones: any
 };
-
-
 
 class Perfil extends React.Component<any, Usuario> {
 
@@ -46,7 +30,9 @@ class Perfil extends React.Component<any, Usuario> {
 
   componentDidMount = () => {
     let nom: String, ape: String, cit: String, dir: String, tel: String, user: String;
-    MetodosAxios.mostrar_perfil("sbaguirr@espol.edu.ec").then(res => {
+    let username: String = localStorage.user;
+    
+    MetodosAxios.mostrar_perfil(username.slice(1, username.length-1)).then(res => {
       res.data.forEach(function (d: any) {
         user = d.nombre_usuario;
         nom = d.nombres;
@@ -66,18 +52,6 @@ class Perfil extends React.Component<any, Usuario> {
       console.log(err);
     });
 
-
-    MetodosAxios.ver_mis_publicaciones("sbaguirr@espol.edu.ec").then(res => {
-      if (res.data.length === 0) {
-        console.log("nai");
-      } else {
-        this.setState({ publicaciones: res.data });
-      }
-    }).catch(err => {
-      console.log(err);
-    });
-
-
   }
 
 
@@ -96,11 +70,7 @@ class Perfil extends React.Component<any, Usuario> {
           <p className="ion-text-center">
             <img src="./assets/icon/user.png" alt="Foto del Usuario" />
           </p>
-          <IonList>
-            <IonItem>
-              <IonTitle class="ion-text-start" >Información sobre {this.state.nombreUsuario}</IonTitle>
-            </IonItem>
-          </IonList>
+          <IonTitle class="ion-text-start" >Información sobre {this.state.nombreUsuario}</IonTitle>    
           <IonList>
             <IonItem>
               <IonLabel position="stacked" >Nombres</IonLabel>
@@ -123,23 +93,10 @@ class Perfil extends React.Component<any, Usuario> {
               <IonInput className="ion-margin-top">{this.state.telefono}</IonInput>
             </IonItem>
           </IonList>
-          <IonList>
-            <IonItem>
-              <IonTitle class="ion-text-start" color="secondary">Publicaciones realizadas</IonTitle>
-            </IonItem>   
-            {
-               this.state.publicaciones.map((dato: any) => {
-                return (
-                  <Publicacion key={dato.objeto_id} nombre={dato.titulo} imagen={dato.ruta}
-                   descripcion={dato.descripcion} precio={dato.precio} fecha_publicacion={dato.fecha_publicacion} categoria={dato.categoria}/>
-                )
-              })
-              }
-          </IonList>
         </IonContent>
       </IonPage>
     )
   }
-
 }
+
 export default Perfil;
