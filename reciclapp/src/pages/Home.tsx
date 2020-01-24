@@ -13,21 +13,25 @@ const slideOpts = {
   centeredSlides: true
 };
 
+
+
 class Home extends React.Component<any, any> {
   constructor(props: any) {
     super(props);
     this.state = {
-      publicaciones: [] as any
+      publicaciones: [] as any,
+      usuario_actual: localStorage.user
     }
   }
 
   componentDidMount = () => {
-    let nombreu: String = localStorage.user;
-    MetodosAxios.ver_publicaciones_otros(nombreu.slice(1,nombreu.length-1)).then(res => {
+ //   let nombreu: String = localStorage.user; nombreu.slice(1,nombreu.length-1)
+    MetodosAxios.ver_publicaciones_otros(this.state.usuario_actual.slice(1,this.state.usuario_actual.length-1)).then(res => {
       if (res.data.length === 0) {
         console.log("No existen publicaciones");
       } else {
         this.setState({ publicaciones: res.data });
+        
       }
     }).catch(err => {
       console.log(err);
@@ -55,9 +59,9 @@ class Home extends React.Component<any, any> {
             this.state.publicaciones.map((dato: any) => {
               return (
                 <IonSlide key={dato.objeto_id} >
-                  <Publicacion key={dato.objeto_id} nombre={dato.titulo} imagen={dato.ruta}
+                  <Publicacion key={dato.objeto_id} id_objeto={dato.objeto_id} nombre={dato.titulo} imagen={dato.ruta}
                    descripcion={dato.descripcion}  estado={dato.estado}  precio={dato.precio}
-                    fecha_publicacion={dato.created_at} categoria={dato.categoria}/>
+                    fecha_publicacion={dato.created_at} categoria={dato.categoria} usuario_actual={this.state.usuario_actual}/>
                 </IonSlide>    
               )                
             })
